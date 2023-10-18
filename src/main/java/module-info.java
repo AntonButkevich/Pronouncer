@@ -7,4 +7,6 @@ module com.example.pronouncer {
 
     opens com.example.pronouncer to javafx.fxml;
     exports com.example.pronouncer;
+    exports com.example.pronouncer.scene;
+    opens com.example.pronouncer.scene to javafx.fxml;
 }
