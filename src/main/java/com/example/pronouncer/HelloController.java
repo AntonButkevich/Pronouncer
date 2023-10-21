@@ -1,14 +1,14 @@
 package com.example.pronouncer;
 
+import com.example.pronouncer.model.PronunciationSupplier;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private ListView<PronunciationSupplier> pronunciationSuppliers;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void addItemToListView(PronunciationSupplier pronunciationSupplier){
+        pronunciationSuppliers.getItems().add(pronunciationSupplier);
     }
 }

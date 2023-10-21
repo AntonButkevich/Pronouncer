@@ -4,6 +4,7 @@ module com.example.pronouncer {
 
     requires org.kordamp.bootstrapfx.core;
     requires com.github.kwhat.jnativehook;
+    requires javafx.media;
 
     opens com.example.pronouncer to javafx.fxml;
     exports com.example.pronouncer;

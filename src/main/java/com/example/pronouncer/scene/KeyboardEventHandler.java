@@ -3,6 +3,7 @@ package com.example.pronouncer.scene;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +34,13 @@ public class KeyboardEventHandler implements NativeKeyListener {
         if (!keyStrokeListeners.isEmpty()){
             KeyStroke keyStroke = new KeyStroke(pressedKeys.toArray(new Key[]{}));
             if (keyStrokeListeners.get(keyStroke) != null){
-                keyStrokeListeners.get(keyStroke).forEach(listener -> listener.onKeyStrokeOccur(keyStroke));
+                keyStrokeListeners.get(keyStroke).forEach(listener -> {
+                    try {
+                        listener.onKeyStrokeOccur(keyStroke);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
             }
         }
         pressedKeys.clear();

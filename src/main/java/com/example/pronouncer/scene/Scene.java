@@ -19,6 +19,7 @@ public class Scene extends javafx.scene.Scene {
         GlobalScreen.addNativeKeyListener(keyboardEventHandler = new KeyboardEventHandler());
     }
 
+    // TODO take a look at the NativeKeyEvent
     public void addKeyStrokeListener(KeyStroke keyStroke, KeyStrokeListener listener){
         keyboardEventHandler.addKeyStrokeListener(keyStroke, listener);
     }
