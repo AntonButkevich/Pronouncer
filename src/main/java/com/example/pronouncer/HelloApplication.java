@@ -16,6 +16,8 @@ import java.io.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+// TODO
+//  add label displaying current clipboard value
 public class HelloApplication extends Application {
     private final ExecutorService threadPool = Executors.newSingleThreadExecutor();
 
@@ -27,14 +29,14 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        PronunciationSupplier defaultPronunciationSupplier = new CambridgePronunciationSupplier(Pronunciation.AMERICAN);
+        Browser defaultBrowser = new CambridgeBrowser(Pronunciation.AMERICAN);
         HelloController controller = fxmlLoader.getController();
-        controller.addItemToListView(defaultPronunciationSupplier);
-        PronunciationHolder pronunciationHolder = new PronunciationHolder(new PronunciationHolderModel(), defaultPronunciationSupplier);
+        controller.addItemToListView(defaultBrowser);
+        PronunciationHolder pronunciationHolder = new PronunciationHolder(new PronunciationHolderModel(), defaultBrowser);
 
         scene.addKeyStrokeListener(new KeyStroke(Key.OPTION, Key.C), keyStroke -> {
             Platform.runLater(() -> {
-                String word = Clipboard.getSystemClipboard().getString();
+                String word = Clipboard.getSystemClipboard().getString().replace("\n", "").toLowerCase();
                 threadPool.execute(() -> {
                     Media pronunciation = pronunciationHolder.getSound(word);
                     if (pronunciation != null) {

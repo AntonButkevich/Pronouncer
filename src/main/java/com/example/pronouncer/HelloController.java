@@ -1,14 +1,14 @@
 package com.example.pronouncer;
 
-import com.example.pronouncer.model.PronunciationSupplier;
+import com.example.pronouncer.model.Browser;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
 public class HelloController {
     @FXML
-    private ListView<PronunciationSupplier> pronunciationSuppliers;
+    private ListView<Browser> pronunciationSuppliers;
 
-    public void addItemToListView(PronunciationSupplier pronunciationSupplier){
-        pronunciationSuppliers.getItems().add(pronunciationSupplier);
+    public void addItemToListView(Browser browser){
+        pronunciationSuppliers.getItems().add(browser);
     }
 }

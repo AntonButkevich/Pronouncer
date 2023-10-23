@@ -2,9 +2,8 @@ package com.example.pronouncer.model;
 
 import javafx.scene.media.Media;
 
-public class ForvoPronunciationSupplier extends PronunciationSupplier
-{
-    public ForvoPronunciationSupplier(Pronunciation pronunciation) {
+public class GoogleBrowser extends Browser {
+    public GoogleBrowser(Pronunciation pronunciation) {
         super(pronunciation);
     }
 
@@ -16,6 +15,6 @@ public class ForvoPronunciationSupplier extends PronunciationSupplier
     @Override
     public String toString()
     {
-        return "Forvo";
+        return "Google";
     }
 }
